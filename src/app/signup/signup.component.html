@@ -3,19 +3,32 @@
   <span class="flex-spacer"></span>
   <button mat-button mat-dialog-close>&times;</button>
 </mat-toolbar>
-<form action="">
+<form>
   <mat-dialog-content>
-    <p>
-    <mat-form-field color="primary">
-      <input matInput placeholder="Email Id" type="email" required> 
-    </mat-form-field>
-    <mat-form-field color="primary">
-      <input matInput placeholder="Username" type="text" required> 
-    </mat-form-field>
-    <mat-form-field color="primary">
-      <input matInput placeholder="Password" type="password" required> 
-    </mat-form-field>
-  </p>
+    
+      <form action="">
+        <div class="row text-center mt-3">
+          <div class="col-12">
+            <mat-form-field color="primary" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email Id" type="email" required> 
+            </mat-form-field>
+          </div>
+          <div class="col-12">
+            <mat-form-field color="primary" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput placeholder="Username" type="text" required> 
+            </mat-form-field>
+          </div>
+          <div class="col-12">
+            <mat-form-field color="primary" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Password" type="password" required> 
+            </mat-form-field>
+          </div>
+        </div>
+       
+      </form>
   </mat-dialog-content>
   <mat-dialog-actions>
     <span class="flex-spacer"></span>
