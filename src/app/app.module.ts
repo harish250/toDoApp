@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -11,12 +12,13 @@ import {SignupComponent } from './signup/signup.component';
 import {LoginComponent} from './login/login.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[SignupComponent,]
+  entryComponents:[ SignupComponent, ]
 })
 export class AppModule { }
