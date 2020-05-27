@@ -31,6 +31,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[ SignupComponent, ]
+  entryComponents: [ SignupComponent, ]
 })
 export class AppModule { }
