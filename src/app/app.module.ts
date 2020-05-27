@@ -1,7 +1,6 @@
 import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +12,10 @@ import {LoginComponent} from './login/login.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {Routes,RouterModule} from '@angular/router';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +29,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    RouterModule,
     MatButtonModule,
     MatDialogModule, MatCardModule, MatToolbarModule
   ],
@@ -33,4 +37,5 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   bootstrap: [AppComponent],
   entryComponents: [ SignupComponent, ]
 })
+
 export class AppModule { }

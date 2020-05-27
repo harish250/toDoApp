@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatFormField} from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
-
+import {RouterModule} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
