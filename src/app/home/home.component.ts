@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   show: boolean;
   reminders: Reminder[] = [];
-  constructor(public timerService:TimerService) {
+  constructor(public timerService: TimerService) {
 
    }
 
@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
 
     console.log(this.reminderForm.value);
     this.reminders.push(this.reminderForm.value);
-    
     this.timerService.getTimer(this.reminderForm.value).subscribe();
     this.reminderForm.reset();
   }
