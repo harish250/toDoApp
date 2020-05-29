@@ -28,7 +28,7 @@ export class TimerService {
                     var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
                     var seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-                      reminder.eventDate=`${years}years ${days}days ${months}month ${hours}hour ${minutes}minute ${seconds}seconds`;
+                      reminder.counter=`${years}years ${days}days ${months}month ${hours}hour ${minutes}minute ${seconds}seconds`;
 
                       if(difference<0 && minutes==0 &&seconds==0 && hours==0 && days==0 && years==0 && months==0)
                       {

@@ -5,5 +5,5 @@ export class Reminder
     eventDescription:string;
     eventDate:string;
     eventTime:string;
-
+    counter:string;
 }
