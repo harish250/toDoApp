@@ -40,7 +40,7 @@
           </mat-form-field>
         </div>
         <div class="col-12 offset-4">
-          <button class="form-control" mat-raised-button color="primary" type="submit">Add</button>
+          <button class="form-control" [disabled]="reminderForm.invalid" mat-raised-button color="primary" type="submit">Add</button>
         </div>
       </div>
     </form>
