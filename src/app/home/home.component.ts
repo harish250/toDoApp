@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl,FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Reminder} from '../shared/reminder';
 import {reminders} from '../shared/reminders';
 @Component({
@@ -9,26 +9,32 @@ import {reminders} from '../shared/reminders';
 })
 export class HomeComponent implements OnInit {
   user = ' ';
-  reminders:Reminder[]=[];
+  show: boolean;
+  reminders: Reminder[] = [];
   constructor() {
-     
    }
-    
-    
+
   reminderForm = new FormGroup(
     {
-        eventTitle:new FormControl(''),
-        eventDescription:new FormControl(''),
-        eventDate:new FormControl(''),
-        eventTime:new FormControl('')
+        eventTitle: new FormControl(''),
+        eventDescription: new FormControl(''),
+        eventDate: new FormControl(''),
+        eventTime: new FormControl('')
     }
   );
 
   ngOnInit(): void {
-  } 
-  submitForm():void
+    if (reminders.length > 0) {
+      this.show = true;
+    }
+    else {
+      this.show = false;
+    }
+  }
+  submitForm(): void
   {
-    console.log(this.reminderForm.value)
+    console.log(this.reminderForm.value);
     this.reminders.push(this.reminderForm.value);
+    this.reminderForm.reset();
   }
 }
