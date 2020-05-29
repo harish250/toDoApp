@@ -1,5 +1,5 @@
 import {Reminder} from './reminder';
-export const reminders:Reminder[]=
+export const reminders: Reminder[] =
 [
 
 ];

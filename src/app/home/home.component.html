@@ -1,11 +1,11 @@
 
 <mat-toolbar color="primary">
-  <div class="ml-auto" >
-    <button mat-raised-button>Add <i class="fas fa-plus-circle"></i></button>
+  <div class="ml-auto " *ngIf="show">
+    <button  mat-raised-button >Add  <i class="fas fa-plus-circle"></i></button>
   </div>
   </mat-toolbar>
 
-  <div class="container forms-container">
+  <div class="container forms-container" *ngIf="!show">
   <div class="row justify-content-center align-items-center">
     <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
       
