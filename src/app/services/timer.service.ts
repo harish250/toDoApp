@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {reminders} from '../shared/reminders';
 import {Observable} from 'rxjs';
 import { Reminder } from '../shared/reminder';
+import { parse } from 'path';
+import { SelectControlValueAccessor } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,28 +16,71 @@ export class TimerService {
 
    getTimer(reminder: Reminder):Observable<Reminder>
    {
+    var countDate=new Date(reminder.eventDate);
+    var now = new Date();
+    
+    if(countDate.getFullYear()==now.getFullYear() && countDate.getMonth()==now.getMonth() && countDate.getDate()==countDate.getDate())
+    {
+      return new Observable<Reminder>(()=>{
+        var x=setInterval(function(){
+                   
+          var now = new Date().getTime();
+          var difference = new Date(reminder.eventTime).getTime()-now;                    
+        console.log("now",new Date().toTimeString());
+        console.log("curr",reminder.eventTime);
+        var nowtimeArray=new Date().toTimeString().split(":");
+        var nowHours=parseInt(nowtimeArray[0]);
+        var nowMin=parseInt(nowtimeArray[1]);
+   
+
+        var countimeArray=reminder.eventTime.split(":");
+        var countHours=parseInt(countimeArray[0]);
+        var countMin=parseInt(countimeArray[1]);
+        
+        
+
+          var hours = Math.abs(countHours-nowHours);
+          var minutes = Math.abs(countMin-nowMin); 
+          
+            
+            reminder.counter=` ${hours}hour ${minutes}minute`;
+           
+            if(hours==0 && minutes==0)
+            {
+              clearInterval(x);
+              alert("ALERT YOUR TIME EXCEEDED");
+            }
+       },1000);
+       
+      
+      });
+    }
+   
     return new Observable<Reminder>(()=>{
-                 var countDate=new Date(reminder.eventDate).getTime();
-                 var x=setInterval(function(){
+                 
+                 
+                  var x=setInterval(function(){
+                   
                     var now = new Date().getTime();
-                    var difference = countDate-now;
-                    var newDate = new Date(difference);
-                    console.log(newDate);
+                    var difference = countDate.getTime()-now;                    
                     var years=Math.floor(difference/(1000*60*60*24*12*31));
                     var days = Math.floor(difference / (1000 * 60 * 60 * 24));
                     var months=Math.floor(difference/(1000*60*60*24*31));
                     var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                    
 
-                      reminder.counter=`${years}years ${days}days ${months}month ${hours}hour ${minutes}minute ${seconds}seconds`;
+                      reminder.counter=`${years}years ${days}days ${months}month ${hours}hour ${minutes}minute `;
 
-                      if(difference<0 && minutes==0 &&seconds==0 && hours==0 && days==0 && years==0 && months==0)
+                      if(difference<0 && minutes==0 && hours==0 && days==0 && years==0 && months==0)
                       {
                         clearInterval(x);
                         alert("ALERT YOUR TIME EXCEEDED");
                       }
                  },1000);
+                 
+                
+                 
     });
    }
 
