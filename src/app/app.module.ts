@@ -13,7 +13,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {Routes,RouterModule} from '@angular/router';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
+import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -29,6 +32,11 @@ import {Routes,RouterModule} from '@angular/router';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule,
     RouterModule,
     MatButtonModule,
     MatDialogModule, MatCardModule, MatToolbarModule

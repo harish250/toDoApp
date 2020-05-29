@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
-
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #303030;
     color: white;
@@ -17,7 +16,20 @@ mat-form-field
 {
     padding-top: 200px;
 }
-.container{
+.forms-container{
     padding-top: 100px;
     padding-right: 100px;
+}
+#cards-section .card
+{
+    color:black;
+    background-color: white;
+}
+#cards-section .card:hover
+{
+    color:white;
+    background-color:#e91e63;
+    transform: scale(1.1,1.1);
+    box-shadow:3px 3px 5px 6px rgb(245, 244, 244);
+    
 }
