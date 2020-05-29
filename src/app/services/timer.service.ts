@@ -14,26 +14,27 @@ export class TimerService {
 
    }
 
-   getTimer(reminder: Reminder):Observable<Reminder>
+   getTimer(reminder: Reminder): Observable<Reminder>
    {
-    var countDate=new Date(reminder.eventDate);
-    var now = new Date();
-    
-    if(countDate.getFullYear()==now.getFullYear() && countDate.getMonth()==now.getMonth() && countDate.getDate()==countDate.getDate())
+    const countDate = new Date(reminder.eventDate);
+    const now = new Date();
+    if (countDate.getFullYear() === now.getFullYear() &&
+    countDate.getMonth() === now.getMonth() && countDate.getDate() === countDate.getDate())
     {
-      return new Observable<Reminder>(()=>{
-        var x=setInterval(function(){
-                   
-          var now = new Date().getTime();
-          var difference = new Date(reminder.eventTime).getTime()-now;                    
-        console.log("now",new Date().toTimeString());
-        console.log("curr",reminder.eventTime);
-        var nowtimeArray=new Date().toTimeString().split(":");
-        var nowHours=parseInt(nowtimeArray[0]);
-        var nowMin=parseInt(nowtimeArray[1]);
+      return new Observable<Reminder>(() => {
+        const x = setInterval(() => {
+          // tslint:disable-next-line:no-shadowed-variable
+          const now = new Date().getTime();
+          console.log('now', new Date().toTimeString());
+          console.log('curr', reminder.eventTime);
+          const nowtimeArray = new Date().toTimeString().split(':');
+          // tslint:disable-next-line:radix
+          const nowHours = parseInt(nowtimeArray[0]);
+          // tslint:disable-next-line:radix
+          var nowMin = parseInt(nowtimeArray[1]);
    
 
-        var countimeArray=reminder.eventTime.split(":");
+        var countimeArray=reminder.eventTime.split(':');
         var countHours=parseInt(countimeArray[0]);
         var countMin=parseInt(countimeArray[1]);
         
@@ -48,7 +49,7 @@ export class TimerService {
             if(hours==0 && minutes==0)
             {
               clearInterval(x);
-              alert("ALERT YOUR TIME EXCEEDED");
+              alert('ALERT YOUR TIME EXCEEDED');
             }
        },1000);
        
@@ -75,7 +76,7 @@ export class TimerService {
                       if(difference<0 && minutes==0 && hours==0 && days==0 && years==0 && months==0)
                       {
                         clearInterval(x);
-                        alert("ALERT YOUR TIME EXCEEDED");
+                        alert('ALERT YOUR TIME EXCEEDED');
                       }
                  },1000);
                  
